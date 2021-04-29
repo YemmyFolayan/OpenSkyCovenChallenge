@@ -10,9 +10,9 @@ username : demopassword : demo
 SOURCE CODE: https://github.com/YemmyFolayan/OpenSkyCovenChallenge
 
 ## Features of the WebApp
-Login Screen for the application
-Top 10 cities/locations displayed based on flight traffics
-Displays arriving and departing flights based on [x] minutes
+1) Login Screen for the application
+2) Top 10 cities/locations displayed based on flight traffics
+3) Displays arriving and departing flights based on [x] minutes
 
 
 ## Base URL of OpenSky Api
@@ -20,9 +20,9 @@ Displays arriving and departing flights based on [x] minutes
 
 
 ## Implemented Endpoints
-  allFlights: "/flights/all",
-  arrivingFlights: "/flights/arrival",
-  departingFlights: "/flights/departure"
+  1) allFlights: "/flights/all",
+  2) arrivingFlights: "/flights/arrival",
+  3) departingFlights: "/flights/departure"
   
   
 ## GETALLFlights snippet
