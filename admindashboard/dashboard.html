@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OpenSky | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+
+
+  <style>
+ 
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 70%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    margin-left: 150px;
+  }
+
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+
+
+  @media screen and (max-width: 350px) {
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      width: 80% !important;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
+  }
+
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+
+  .modal-body {padding: 2px 16px;}
+
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  </style>
+</head>
+
+
+
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+
+
+
+
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="javascript:void()" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../index.html" class="nav-link">Home</a>
+      </li>
+     </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links-->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+       
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="javascript:void()" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void()" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void()" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void()" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void()" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void()" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void()" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void()" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+
+      <span class="brand-text font-weight-light">Opensky</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="/assets/images/admin.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+
+
+        <div id="AdminName">
+        </div>
+          
+   
+
+
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="javascript:void()" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+           
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>Home</p>
+            </a>
+          </li>
+
+          
+
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>Login/ LogOut</p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+              <li class="breadcrumb-item active">Opensky</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>1</h3>
+
+                <p>Los Angeles</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <button id="myBtnLos" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <!-- The Modal -->
+          <div id="myModalLos" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+               <form id="form" method="post" novalidate>
+                <label for="user-name">Username or email address *</label>
+                <input class="no-round-input" id="email" type="email" name="email">
+                <span class="helper-text"></span>
+                <label for="password">Password *</label>
+
+                <input class="no-round-input" id="password" type="password" name="password" onfocusout="validatePassword()">
+                <span class="helper-text"></span>
+
+                <div class="account-method">
+                  <div class="account-save">
+                    <input id="savepass" type="checkbox">
+                    <label for="savepass">Save Password</label>
+                  </div>
+
+                     <div class="account-save">
+                     <a class="create-account" href="/resetEmailPassword.html"><label> Reset Password</label></a>
+                      </div>
+
+
+                  </div>
+                <div class="account-function">
+                  <button class="no-round-btn" type="submit">Sign in</button>   </div>
+              </form>
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+               
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalLos");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnLos");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="totalProducts">
+            <!-- small box -->
+             <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>2</h3>
+
+                <p>Houston</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <button id="myBtnHou" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalHou" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalHou");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnHou");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[1];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="userReg">
+
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>3</h3>
+
+                <p>New Jersey</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <button id="myBtnNew" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+             </div>
+
+           
+            
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalNew" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalNew");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnNew");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[2];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="pendingOrders">
+
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>4</h3>
+
+                <p>Trenton</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <button id="myBtnTren" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+             </div>
+           
+            
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalTren" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalTren");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnTren");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[3];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+         
+
+
+        </div>
+
+
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>5</h3>
+
+                <p>Atlanta</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <button id="myBtnAtl" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalAtl" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalAtl");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnAtl");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[4];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="totalProducts">
+            <!-- small box -->
+             <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>6</h3>
+
+                <p>New York LGA</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <button id="myBtnYor" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalYor" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalYor");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnYor");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[5];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="userReg">
+
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>7</h3>
+
+                <p>Amsterdam</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <button id="myBtnAms" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+             </div>
+
+           
+            
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalAms" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalAms");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnAms");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[6];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="pendingOrders">
+
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>8</h3>
+
+                <p>London</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <button id="myBtnLon" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+             </div>
+           
+            
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalLon" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalLon");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnLon");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[7];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="allCheckout">
+            <!-- small box -->
+
+             <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>9</h3>
+
+                <p>Chicago</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <button id="myBtnChi" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalChi" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalChi");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnChi");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[7];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+
+
+           <div class="col-lg-3 col-6" id="allCheckout">
+            <!-- small box -->
+
+             <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>10</h3>
+
+                <p>Denver</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <button id="myBtnDen" class="button">More Info</button>
+
+              <a href="javascript:void()" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            
+          </div>
+
+           <!-- The Modal -->
+          <div id="myModalDen" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>OpenSky Flight Info</h2>
+              </div>
+              <div class="modal-body">
+                <p>Flight Informations...</p>
+
+                <form id="form" method="post">
+                  <label for="Departingflights">Departing flights</label>
+                  <p>
+                  <input class="no-round-input" id="Departingflights" type="text" name="email">
+
+                  <p>
+                
+                  <label for="arrivingFlight">Arriving flights</label>
+
+                  <p>
+
+                  <input class="no-round-input" id="password" type="text" name="arrivingFlight">
+
+                  <p>
+
+
+                   <label for="arrivingFlight">Arriving flights</label>
+
+                  <p>
+
+                  <input class="no-round-input" id="arrivingFlight" type="text" name="arrivingFlight">
+
+                  <p>
+               
+
+                  
+                  <label for="FlightInfo">Flight info</label>
+
+                  <p>
+
+                  <input class="no-round-input" id="FlightInfo" type="text" name="FlightInfo">
+
+                  <p>
+
+
+                  <p><b>ICAO number</b> :</p>
+
+                  <p><b>firstSeen :</b></p>
+
+                  <p><b> estDepartureAirport :</b></p>
+
+                  <p><b>lastSeen :</b></p>
+
+                  <p><b>estArrivalAirport :</b></p>
+
+                  <p><b>estDepartureAirportHorizDistance :</b></p>
+
+                  <p><b> estDepartureAirportVertDistance :</b></p>
+
+                  <p><b>estArrivalAirportHorizDistance :</b></p>
+
+                  <p><b>estArrivalAirportVertDistance :</b></p>
+
+                  <p><b>departureAirportCandidatesCount :</b></p>
+
+                  <p><b>arrivalAirportCandidatesCount :</b></p>
+
+                  
+
+                 
+                </form>
+              </div>
+              <div class="modal-footer">
+                <h3>By Michael</h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById("myModalDen");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtnDen");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[8];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+       
+         
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-5 connectedSortable">
+
+            <!-- Calendar -->
+            <div class="card bg-gradient-success">
+              <div class="card-header border-0">
+
+                <h3 class="card-title">
+                  <i class="far fa-calendar-alt"></i>
+                  Calendar
+                </h3>
+                <!-- tools card -->
+                <div class="card-tools">
+                  <!-- button with a dropdown -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                      <i class="fas fa-bars"></i></button>
+                    <div class="dropdown-menu" role="menu">
+                      <a href="#" class="dropdown-item">Add new event</a>
+                      <a href="#" class="dropdown-item">Clear events</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">View calendar</a>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /. tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body pt-0">
+                <!--The calendar -->
+                <div id="calendar" style="width: 100%"></div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            </div>
+               
+
+           <div class="card-footer bg-transparent">
+                <div class="row">
+                  <div class="col-4 text-center">
+                    <div id="sparkline-1"></div>
+                    <div class="text-white">Visitors</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-2"></div>
+                    <div class="text-white">Online</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-3"></div>
+                    <div class="text-white">Sales</div>
+                  </div>
+                  <!-- ./col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            
+            <!-- /.card -->
+
+            <!-- solid sales graph -->
+            <div class="card bg-gradient-info">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="fas fa-th mr-1"></i>
+                  Open Sky Graph
+                </h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer bg-transparent">
+                <div class="row">
+                  <div class="col-4 text-center">
+                    <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
+                           data-fgColor="#39CCCC">
+
+                    <div class="text-white">Tickets</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
+                           data-fgColor="#39CCCC">
+
+                    <div class="text-white">Online</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
+                           data-fgColor="#39CCCC">
+
+                    <div class="text-white"></div>
+                  </div>
+                  <!-- ./col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2021 <a href="#">Opensky Airline</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Developed</b> by Michael Folayan
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->"Cookie", "access_token=
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- IntrioBasket App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- IntrioBasket dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+
+
+<script src="..js/utils/AuthenticationAdminLogin.js"></script>
+
+
+
+<!--Config -->
+<script src="../config/constants.js"></script>
+
+<!-- Utils -->
+<script src="../js/utils/api-request.js"></script>
+
+<!-- App Logic -->
+<script src="../js/app.js"></script>
+
+<!--Dash INFO-->
+
+<script src="dist/js/dashboardinfoAggregator.js"></script>
+
+
+
+</body>
+</html>
