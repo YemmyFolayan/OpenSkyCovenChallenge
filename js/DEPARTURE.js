@@ -20,25 +20,25 @@ fetch(
     return response.json();
   })
   .then(function (data) {
-    var msg = data.message;
+    var ICAO = data.icao24;
+    var firstSeen = data.firstSeen;
+    var estDepartureAirportHorizDistance =
+      data.estDepartureAirportHorizDistance;
+    var estDepartureAirportVertDistance = data.estDepartureAirportVertDistance;
+    var estArrivalAirportHorizDistance = data.estArrivalAirportHorizDistance;
+    var estArrivalAirportVertDistance = data.estArrivalAirportVertDistance;
+    var departureAirportCandidatesCount = data.departureAirportCandidatesCount;
+    var arrivalAirportCandidatesCount = data.arrivalAirportCandidatesCount;
 
-    //this is user id;
-
-    const AdminId = data.payload.id;
-
-    const adminToken = data.payload.token;
-
-    //SAVE this ID to session storage to re-use it in cart
-    localStorage.setItem("AdminId", AdminId);
-
-    const name = data.payload.fullname;
-    console.log("this is : ", name, AdminId);
-
-    localStorage.setItem("name", name);
-
-    localStorage.setItem("adminToken", adminToken);
-
-    const role = data.payload.role;
+    console.log(ICAO);
+    console.log(firstSeen);
+    console.log(estDepartureAirportHorizDistance);
+    console.log(estDepartureAirportVertDistance);
+    console.log(estArrivalAirportHorizDistance);
+    console.log(estArrivalAirportVertDistance);
+    console.log(epartureAirportCandidatesCount);
+    console.log(departureAirportCandidatesCount);
+    console.log(arrivalAirportCandidatesCount);
 
     //AT this block, i want to compare the id with the one in user also use the id for cart logic
   });
