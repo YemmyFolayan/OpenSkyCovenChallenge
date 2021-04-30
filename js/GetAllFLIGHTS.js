@@ -12,17 +12,17 @@ const featuredProductItemTemplate = (flightInfos) => {
   return `
         <div class="product">
          
-            <h5 class="product-type">${flightInfo.icao24}</h5>
-            <h3 class="product-name">${flightInfo.firstSeen}</h3>
-            <h3 class="product-price">${flightInfo.estDepartureAirportHorizDistance}</h3>
+            <h5 class="product-name">ICAO No: ${flightInfos.icao24}</h5>
+            <h3 class="product-name">FirstSeen: ${flightInfos.firstSeen}</h3>
+            <h3 class="product-name">DepHorizDistance: ${flightInfos.estDepartureAirportHorizDistance}</h3>
 
-            <h3 class="product-name">${flightInfo.estDepartureAirportVertDistance}</h3>
-            <h3 class="product-price"> ${flightInfo.estArrivalAirportHorizDistance}</h3>
+            <h3 class="product-name">DepVertDistance: ${flightInfos.estDepartureAirportVertDistance}</h3>
+            <h3 class="product-name">ArrHorizDistance: ${flightInfos.estArrivalAirportHorizDistance}</h3>
 
-            <h3 class="product-name">${flightInfo.estArrivalAirportVertDistance}</h3>
-            <h3 class="product-price"> ${flightInfo.departureAirportCandidatesCount}</h3>
+            <h3 class="product-name">ArrVertDistance: ${flightInfos.estArrivalAirportVertDistance}</h3>
+            <h3 class="product-name">DepCandidateCount: ${flightInfos.departureAirportCandidatesCount}</h3>
 
-            <h3 class="product-name">${flightInfo.arrivalAirportCandidatesCount}</h3>
+            <h3 class="product-name">ArrCandidateCount: ${flightInfos.arrivalAirportCandidatesCount}</h3>
        
   
   
@@ -32,13 +32,13 @@ const featuredProductItemTemplate = (flightInfos) => {
 };
 
 fetch(
-  "https://demo:demo@opensky-network.org/api/flights/all?begin=1517227200&end=1517230800",
+  "https://opensky-network.org/api/flights/all?begin=1517227200&end=1517230800",
   {
     method: "GET",
-    body: JSON.stringify({
-      USERNAME: demo,
-      PASSWORD: demo,
-    }),
+    // body: JSON.stringify({
+    //   USERNAME: demo,
+    //   PASSWORD: demo,
+    // }),
     headers: {
       "Content-Type": "application/json; charset= UTF-8",
     },
@@ -51,7 +51,7 @@ fetch(
     console.log({ data });
     data.forEach((flightInfo) => {
       let flightInfos = {
-        ICAO: flightInfo.icao24,
+        icao24: flightInfo.icao24,
         firstSeen: flightInfo.firstSeen,
         estDepartureAirportHorizDistance:
           flightInfo.estDepartureAirportHorizDistance,
@@ -83,7 +83,7 @@ fetch(
     // var departureAirportCandidatesCount = data.departureAirportCandidatesCount;
     // var arrivalAirportCandidatesCount = data.arrivalAirportCandidatesCount;
 
-    console.log(ICAO);
+    console.log(icao24);
     console.log(firstSeen);
     console.log(estDepartureAirportHorizDistance);
     console.log(estDepartureAirportVertDistance);
