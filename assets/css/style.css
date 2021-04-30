@@ -1442,7 +1442,7 @@ a:focus {
   z-index: 6;
   transition: 0.3s ease;
   margin-bottom: 30px;
-  height: 290px;
+  height: 600px;
 }
 
 product-img {
@@ -3288,7 +3288,7 @@ product-img {
     align-items: center;
     padding: 8px 8px 12px;
     margin-bottom: 0;
-    height: 290px;
+    height: 600px;
     width: 150px;
   }
 
